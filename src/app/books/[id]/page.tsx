@@ -21,7 +21,7 @@ const Page = () => {
   }, []);
   return (
     <Wrapper>
-      <div className="mt-20 xs:p-10 sm:p-0">
+      <div className="mt-20 xs:p-10 sm:p-0 bg-black">
         <div>
           <Image
             src={books?.volumeInfo?.imageLinks?.smallThumbnail || ""}
