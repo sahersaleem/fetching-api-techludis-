@@ -33,9 +33,9 @@ const Page = () => {
             <h1 className="text-h1 font-bold mt-4">
               {books?.volumeInfo?.title}
             </h1>
-            <h2 className="text-h2">{books?.volumeInfo.subtitle}</h2>
-            <h3 className="text-h3">Page Count : {books?.volumeInfo.pageCount}</h3>
-            <h3 className="text-h3">Published Date : {books?.volumeInfo.publishedDate}</h3>
+            <h2 className="text-h2 text-white">{books?.volumeInfo.subtitle}</h2>
+            <h3 className="text-h3 text-white">Page Count : {books?.volumeInfo.pageCount}</h3>
+            <h3 className="text-h3 text-white">Published Date : {books?.volumeInfo.publishedDate}</h3>
             <div className="flex flex-col gap-y-1">
             <Link href={books?.volumeInfo?.infoLink||""} className="underline text-link hover:text-link-hover" >Book Information link</Link>
             <Link href={books?.volumeInfo?.previewLink||""} className="underline text-link hover:text-link-hover">Book Preview link</Link>
