@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import {Poppins} from "next/font/google"
 import "./globals.css";
+import { Suspense } from "react";
+import Loader from "@/components/shared/Loader";
 
 
 
@@ -25,7 +27,8 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} font-poppins antialiased bg-black`}
       >
-        {children}
+        <Suspense fallback={<Loader/>}>{children}</Suspense>
+        
       </body>
     </html>
   );
