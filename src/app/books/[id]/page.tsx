@@ -6,7 +6,6 @@ import { useParams } from "next/navigation";
 import { getBooksById } from "@/apis/getbooksbyId";
 import Image from "next/image";
 import Wrapper from "@/components/shared/Wrapper";
-import Link from "next/link";
 import Loader from "@/components/shared/Loader";
 
 const Page = () => {
