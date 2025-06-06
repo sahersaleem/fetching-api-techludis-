@@ -45,7 +45,7 @@ const Page = () => {
               alt="image"
             />
           </div>
-          <div className="w-full lg:w-[50%]">
+          <div className="w-full lg:w-[50%] text-white">
             <h1 className="text-h1 font-bold mt-4 text-center lg:text-left">
               {books?.volumeInfo?.title}
             </h1>

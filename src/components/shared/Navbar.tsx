@@ -42,7 +42,7 @@ const Navbar = () => {
 
         {/* Hamburger Icon - Mobile Only */}
         <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="text-white">
             {menuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
           </button>
         </div>
