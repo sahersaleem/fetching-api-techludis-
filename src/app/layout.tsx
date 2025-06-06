@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} font-poppins antialiased bg-black`}
+        className={`${poppins.variable} font-poppins antialiased bg-black text-white`}
       >
         <Suspense fallback={<Loader/>}>{children}</Suspense>
         
