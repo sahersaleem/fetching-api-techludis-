@@ -10,25 +10,26 @@ import Loader from "../shared/Loader";
 
 const Books_section = () => {
   const [books, setbooks] = useState<IBooks[]>();
- const [isLoading, setisLoading] = useState<boolean>(false)
- 
+  const [isLoading, setisLoading] = useState<boolean>(true);
+
   useEffect(() => {
     const get_books = async () => {
-      setisLoading(true)
+      setisLoading(true);
       const response = await get_random_book();
-      console.log(response)
+      console.log(response);
       setbooks(response.data.data);
-      setisLoading(false)
-
+      setisLoading(false);
     };
     get_books();
   }, []);
 
   return (
     <Wrapper>
-      {
-        isLoading && <div className="w-full h-[60vh] flex justify-center items-center"> <Loader/></div>
-      }
+      {isLoading && (
+        <div className="w-full h-[60vh] flex justify-center items-center">
+          <Loader />
+        </div>
+      )}
       <div className="flex gap-9 justify-center items-center flex-wrap mt-28 font-poppins">
         {books &&
           books.map((item, index) => (
