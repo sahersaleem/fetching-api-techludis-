@@ -7,6 +7,7 @@ import { getBooksById } from "@/apis/getbooksbyId";
 import Image from "next/image";
 import Wrapper from "@/components/shared/Wrapper";
 import Loader from "@/components/shared/Loader";
+import Link from "next/link";
 
 const Page = () => {
   const { id } = useParams();
@@ -29,10 +30,14 @@ const Page = () => {
           <Loader />
         </div>
       )}
-      <div className="mt-20 xs:p-10 sm:p-0 font-poppins">
+      <div className="mt-20 xs:p-10 sm:p-0 font-poppins h-auto lg:pb-10">
         <div className="flex w-full flex-col lg:flex-row items-center justify-center p-3 lg:p-0 ">
           <div className="w-full lg:w-[50%] ">
-                 <span className="bg-white p-2 text-black font-poppins capitalize font-bold">{books?.salesInfo?.saleability==="FOR_SALE"? "For sale" :"not for sale"}</span>
+            <span className="bg-white p-2 text-black font-poppins capitalize font-bold">
+              {books?.salesInfo?.saleability === "FOR_SALE"
+                ? "For sale"
+                : "not for sale"}
+            </span>
             <Image
               src={books?.volumeInfo?.imageLinks?.smallThumbnail || ""}
               width={300}
@@ -41,16 +46,15 @@ const Page = () => {
             />
           </div>
           <div className="w-full lg:w-[50%]">
-       
             <h1 className="text-h1 font-bold mt-4 text-center lg:text-left">
               {books?.volumeInfo?.title}
- </h1>
-              <h2 className="text-h2 text-white">
-                {books?.volumeInfo.subtitle}
-              </h2>
-           
+            </h1>
+            <h2 className="text-h2 text-white text-center lg:text-left">
+              {books?.volumeInfo.subtitle}
+            </h2>
+
             <div className="border border-gray-600/50 w-full p-4 mt-4">
-            <h3 className="text-h3 font-semibold">Book Details:</h3>
+              <h3 className="text-h3 font-semibold">Book Details:</h3>
               <p className="text-paragraph text-white">
                 <span className="text-h4"> Pages :</span>{" "}
                 {books?.volumeInfo.pageCount}
@@ -66,19 +70,24 @@ const Page = () => {
               <p className="text-paragraph text-white">
                 <span className="text-h4"> Authors :</span>
                 <div className="flex flex-col ml-3">
-                {books?.volumeInfo.authors.map((item, index) => (
-                  <ul key={index} >
-                    <li className="list-disc text-paragraph">{item}</li>
-                  </ul>
-                ))}
+                  {books?.volumeInfo.authors.map((item, index) => (
+                    <ul key={index}>
+                      <li className="list-disc text-paragraph">{item}</li>
+                    </ul>
+                  ))}
                 </div>
               </p>
-               <p className="text-paragraph text-white">
+              <p className="text-paragraph text-white">
                 <span className="text-h4">Language :</span>{" "}
                 {books?.volumeInfo.language}
               </p>
             </div>
-            {/* <div className="flex flex-col gap-y-1">
+            <div className="border border-gray-600/50 w-full p-4 mt-4">
+              <h4 className="text-h4">Description :</h4>
+              <p className="text-paragraph">{books?.volumeInfo.description}</p>
+            </div>
+            <div className="flex flex-col gap-y-1 border border-gray-600/50 w-full p-4 mt-4">
+              <h4 className="text-h4">Links :</h4>
               <Link
                 href={books?.volumeInfo?.infoLink || ""}
                 className="underline text-link hover:text-link-hover"
@@ -91,10 +100,6 @@ const Page = () => {
               >
                 Book Preview link
               </Link>
-            </div> */}
-            <div className="border border-gray-600/50 w-full p-4 mt-4">
-              <h4 className="text-h4">Description :</h4>
-              <p className="text-paragraph">{books?.volumeInfo.description}</p>
             </div>
 
             <div className="flex  gap-3 mt-7">

@@ -16,6 +16,7 @@ const Books_section = () => {
     const get_books = async () => {
       setisLoading(true)
       const response = await get_random_book();
+      console.log(response)
       setbooks(response.data.data);
       setisLoading(false)
 

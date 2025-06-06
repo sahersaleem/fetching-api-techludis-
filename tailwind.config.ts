@@ -21,7 +21,13 @@ const config: Config = {
         "poppins": ["var('--font-poppins')"],
       },
       screens: {
-        xs: "200px",
+        'xs': '360px',     // Extra small devices (custom)
+        'sm': '640px',     // Small devices (default)
+        'md': '768px',     // Medium devices (default)
+        'lg': '1024px',    // Large devices (default)
+        'xl': '1280px',    // Extra large devices (default)
+        '2xl': '1536px',   // 2x Extra large (default)
+        '3xl': '1800px',   // Custom: very large screens
       },
       fontSize: {
         h1: ["30px", { lineHeight: "2.5rem" }],

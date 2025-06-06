@@ -15,6 +15,7 @@ export interface IBooks {
     previewLink: string;
     infoLink: string;
     language: string,
+    categories:string[]
       
   };
 
