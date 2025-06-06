@@ -9,7 +9,7 @@ import Image from "next/image";
 import Loader from "@/components/shared/Loader";
 import Wrapper from "@/components/shared/Wrapper";
 import { IoIosArrowRoundBack } from "react-icons/io";
-
+import { Suspense } from "react";
 
 const BooksByQuery = () => {
   const search = useSearchParams();
@@ -31,6 +31,7 @@ const BooksByQuery = () => {
   }, [query]);
 
   return (
+    <Suspense fallback={<Loader/>}>
     <Wrapper>
       <div className="flex mt-10 items-center justify-center gap-x-5 flex-col lg:flex-row">
         <h1 className="text-h1 text-center ">Books By Category</h1>
@@ -67,6 +68,7 @@ const BooksByQuery = () => {
           ))}
       </div>
     </Wrapper>
+    </Suspense>
   );
 };
 
