@@ -3,24 +3,32 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { get_random_book } from "@/apis/randomBookApi";
 import { IBooks } from "@/types/books.types";
-import Wrapper from "./Wrapper";
+import Wrapper from "../shared/Wrapper";
 import Image from "next/image";
 import Link from "next/link";
+import Loader from "../shared/Loader";
 
 const Books_section = () => {
   const [books, setbooks] = useState<IBooks[]>();
+ const [isLoading, setisLoading] = useState<boolean>(false)
+ 
   useEffect(() => {
     const get_books = async () => {
+      setisLoading(true)
       const response = await get_random_book();
-      console.log(response);
       setbooks(response.data.data);
+      setisLoading(false)
+
     };
     get_books();
   }, []);
 
   return (
     <Wrapper>
-      <div className="flex gap-9 justify-center items-center flex-wrap mt-28">
+      {
+        isLoading && <div className="w-full h-[60vh] flex justify-center items-center"> <Loader/></div>
+      }
+      <div className="flex gap-9 justify-center items-center flex-wrap mt-28 font-poppins">
         {books &&
           books.map((item, index) => (
             <div
